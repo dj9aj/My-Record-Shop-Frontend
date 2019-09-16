@@ -8,6 +8,7 @@ const SRC_DIR = `${__dirname}/src`;
 const DIST_DIR = `${__dirname}/dist`;
 
 module.exports = {
+  // babel-polyfill needed for ES6 promises, Array.from etc. react-hot-loader to preserve React state after hot-reloading.
   entry: ['babel-polyfill', 'react-hot-loader/patch', `${SRC_DIR}/index.js`],
   output: {
     path: path.resolve(__dirname, 'dist.js'),
@@ -16,6 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
+        // Apply babel to JS files
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -27,10 +29,7 @@ module.exports = {
         use: [
           // Translates CSS into CommonJS
           { loader: 'style-loader' },
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          // css-loader
+          { loader: MiniCssExtractPlugin.loader },
           {
             // Translates CSS into CommonJS
             loader: 'css-loader',
@@ -43,7 +42,6 @@ module.exports = {
               },
             }, 
           },
-          
           // Compiles Sass to CSS 
           { loader: 'sass-loader' }
         ]
@@ -53,7 +51,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'html-loader',
-          options: {minimize: true}
+          options: { minimize: true }
         }
       }
     ]
