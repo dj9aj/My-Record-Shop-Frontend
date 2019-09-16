@@ -1,0 +1,35 @@
+// GENERAL
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+// RESPONSIVE BREAKPOINTS
+$bp-big-desktop: 112.5em; 
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
+$bp-smaller: 25em; // 400px - iPhone 6/7/8
+$bp-smallest: 22em; // 350px - iPhone 5
+
+html {
+    font-size: 62.5%; // 1 rem = 10px; 10px/16px = 62.5%
+    box-sizing: border-box;
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+    
+    @media only screen and (max-width: $bp-smallest) {
+        font-size: 45%;
+    }
+}
+
+::selection {
+    color: $color-white;
+    background-color: $color-secondary;
+}

@@ -5,7 +5,7 @@ class app extends Component {
   render() {
     return (
       <div>
-        <p>Hello World!</p>
+        <p className={styles['heading-primary']}>Hello World!</p>
       </div>
     );
   }
