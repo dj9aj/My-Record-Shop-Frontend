@@ -11,8 +11,8 @@ module.exports = {
   // babel-polyfill needed for ES6 promises, Array.from etc. react-hot-loader to preserve React state after hot-reloading.
   entry: ['babel-polyfill', 'react-hot-loader/patch', `${SRC_DIR}/index.js`],
   output: {
-    path: path.resolve(__dirname, 'dist.js'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/bundle.js'
   },
   module: {
     // When pre-processing source code as it's imported, Loaders are executed from bottom to top in the rules array.
@@ -59,6 +59,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    // Automatically injects js diles into generated html file
     new HtmlWebpackPlugin({ template: `${SRC_DIR}/index.html`, filename: './index.html' }),
     // This plugin creates a CSS file per JS file which contains CSS
     new MiniCssExtractPlugin({
