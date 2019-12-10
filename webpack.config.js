@@ -15,6 +15,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+    // When pre-processing source code as it's imported, Loaders are executed from bottom to top in the rules array.
     rules: [
       {
         // Apply babel to JS files
