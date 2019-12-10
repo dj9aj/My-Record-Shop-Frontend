@@ -59,7 +59,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // Automatically injects js diles into generated html file
+    // Automatically injects js files into generated html file
     new HtmlWebpackPlugin({ template: `${SRC_DIR}/index.html`, filename: './index.html' }),
     // This plugin creates a CSS file per JS file which contains CSS
     new MiniCssExtractPlugin({
