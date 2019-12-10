@@ -30,7 +30,7 @@ module.exports = {
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { modules: true, sourceMap: true, minimize: true, modules: { localIdentName: '[local]___[hash:base64:5]' } },
+              options: { modules: true, sourceMap: true, modules: { localIdentName: '[local]___[hash:base64:5]' } },
             },
             {
               // Compiles Sass to CSS 
