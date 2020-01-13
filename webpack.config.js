@@ -18,10 +18,23 @@ module.exports = {
     // When pre-processing source code as it's imported, Loaders are executed from bottom to top in the rules array.
     rules: [
       {
-        // Apply babel to JS files
+        // First, run the linter.
+        // It's important to do this before Babel processes the JS.
         test: /\.(js|jsx)$/,
+        enforce: 'pre',
         exclude: /node_modules/,
-        use: { loader: 'babel-loader' },
+        use: [
+          {
+            options: {
+              eslintPath: require.resolve('eslint'),
+              emitWarning: true,
+              baseConfig: { extends: 'eslint-config-airbnb' },
+            },
+            loader: require.resolve('eslint-loader'),
+          },
+          // Apply babel to JS files
+          { loader: 'babel-loader' },
+        ] 
       },
       {
         test: /\.(scss|sass|css)$/,
